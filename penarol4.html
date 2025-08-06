@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Peñarol</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .left, .right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2em;
+      cursor: pointer;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .left {
+      background-color: yellow;
+      color: black;
+    }
+
+    .right {
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="left" id="jugador"></div>
+    <div class="right" id="titulo"></div>
+  </div>
+
+  <script>
+    const jugadores = [
+      "Fernando Morena",
+      "Antonio Pacheco",
+      "Walter Pandiani",
+      "Darwin Núñez",
+      "Cristian Rodríguez",
+      "Néstor Gonçalves",
+      "Pablo Bengoechea",
+      "Diego Forlán",
+      "Marcelo Zalayeta",
+      "Jorge Gonçalves"
+    ];
+
+    const titulos = [
+      "1960 - Copa Libertadores",
+      "1961 - Copa Libertadores",
+      "1966 - Copa Libertadores e Intercontinental",
+      "1982 - Copa Libertadores e Intercontinental",
+      "1987 - Copa Libertadores",
+      "1997 - Campeonato Uruguayo",
+      "2010 - Campeonato Uruguayo",
+      "2013 - Campeonato Uruguayo",
+      "2018 - Campeonato Uruguayo",
+      "2021 - Campeonato Uruguayo"
+    ];
+
+    const jugadorDiv = document.getElementById("jugador");
+    const tituloDiv = document.getElementById("titulo");
+
+    function jugadorAleatorio() {
+      const random = Math.floor(Math.random() * jugadores.length);
+      jugadorDiv.textContent = jugadores[random];
+    }
+
+    function tituloAleatorio() {
+      const random = Math.floor(Math.random() * titulos.length);
+      tituloDiv.textContent = titulos[random];
+    }
+
+    // Mostrar un jugador y un título al cargar
+    jugadorAleatorio();
+    tituloAleatorio();
+
+    // Cambiar solo jugador o solo título según el clic
+    jugadorDiv.addEventListener('click', jugadorAleatorio);
+    tituloDiv.addEventListener('click', tituloAleatorio);
+  </script>
+
+</body>
+</html>
